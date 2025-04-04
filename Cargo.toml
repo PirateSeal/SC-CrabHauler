@@ -1,0 +1,48 @@
+[package]
+name = "sc-crabhauler"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Parallel processing - crucial for genetic algorithm performance
+rayon = "1.7"
+
+# Random number generation for genetic algorithm operations
+rand = "0.9.0"
+
+# Serialization/Deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# For environment variables
+dotenv = "0.15.0"
+
+# Web server framework
+axum = "0.8.3"
+axum-extra = { version = "0.10.1", features = ["typed-header"] }  # Adjust if necessary
+tower-http = { version = "0.6.2", features = ["cors", "trace"] }
+tokio = { version = "1.44.1", features = ["full"] }
+
+# Vector/Coordinate math for distance calculations
+glam = { version = "0.30.1", features = ["serde"] }  # Efficient linear algebra for graphics/games
+
+# Utility crates
+thiserror = "2.0.12"  # Error handling
+tracing = "0.1.41"    # Logging
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+
+# Unique IDs for events and missions
+uuid = { version = "1.16.0", features = ["v4", "serde"] }
+
+# Configuration
+config = "0.15.11"
+
+# Optional: Graph algorithms if needed for path finding
+petgraph = "0.7.1"
+
+[dev-dependencies]
+criterion = "0.5.1"  # For benchmarking
+
+#[[bench]]
+#name = "ga_benchmark"
+#harness = false
